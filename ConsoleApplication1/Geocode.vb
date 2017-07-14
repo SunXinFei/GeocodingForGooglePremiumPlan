@@ -5,10 +5,10 @@ Module Geocode
 
     Public Function GoogleGeocode(ByVal tmpCustomer As LocationEntity) As GoogleGeocodeEntity
         Dim encodeAddress As String = System.Web.HttpUtility.UrlEncode(tmpCustomer.Address & " " & tmpCustomer.City & " " & tmpCustomer.State & " " & tmpCustomer.PostalCode)
-        Dim httpURL As String = "https://maps.googleapis.com/maps/api/geocode/json?address=" & encodeAddress & "&client=" & "Google maps api client ID"
+        Dim httpURL As String = "https://maps.googleapis.com/maps/api/geocode/json?address=" & encodeAddress & "&client=" & "Google_Map_Api_Client_ID"
         Dim googleGeocodeResult As New GoogleGeocodeEntity
-        Dim key As String = "Google Map Crypto Key"
-        Dim GoogleRouteRequestBuilder As New GoogleRouteRequestBuilder(key, "Google Map Api Client ID")
+        Dim key As String = "Google_Map_Crypto_Key"
+        Dim GoogleRouteRequestBuilder As New GoogleRouteRequestBuilder(key, "Google_Map_Api_Client_ID")
         Dim requestURL As String = GoogleRouteRequestBuilder.GoogleSignedUrl(httpURL, key)
         Try
             Dim responseFromServer As String = BC_File.Http(requestURL, "", 50)
